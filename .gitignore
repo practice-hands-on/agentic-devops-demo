@@ -1,0 +1,34 @@
+# Terraform
+**/.terraform/*
+*.tfstate
+*.tfstate.*
+crash.log
+crash.*.log
+*.tfvars
+!*.tfvars.example
+*.destroyplan
+.cleanup.destroyplan
+# Saved plan files (terraform plan -out=...) embed state values, including
+# sensitive ones such as the RDS master password, in plain text.
+tfplan
+tfplan-*
+*.tfplan
+.build/
+
+# Secrets / local env -- .env.example is the one exception, tracked on purpose.
+# Both patterns are needed: `.env.*` does NOT match the bare `.env` filename
+# (found by the security review after the first pass here dropped `.env`).
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# OS / editor
+.DS_Store
+*.swp
+
+# Python
+__pycache__/
+*.pyc
+.venv/
